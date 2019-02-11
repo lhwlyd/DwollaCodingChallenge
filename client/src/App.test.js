@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./setupTests";
+import "./setUpTests";
 import { shallow } from "enzyme";
 import sinon from "sinon";
 
