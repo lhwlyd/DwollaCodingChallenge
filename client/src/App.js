@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
   handleChange(event) {
     let name = event.target.value;
     this.setState({ name: name });
-    console.log(name);
   }
 
   handleSubmit = () => {
@@ -29,13 +27,11 @@ class App extends Component {
       "https://api.openweathermap.org/data/2.5/weather?q=" +
         this.state.name +
         "&APPID=3f80545e90c82534eaecd01403e9b531"
-      // "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=3f80545e90c82534eaecd01403e9b531"
     )
       .then(res => {
         return res.json();
       })
       .then(function(myJson) {
-        console.log(myJson);
         if (myJson.cod === "404") {
           self.setState({
             notFound: true,
@@ -73,31 +69,44 @@ class App extends Component {
               name="name"
               value={this.state.value}
               onChange={this.handleChange}
+              id="textInput"
             />
-            <button onClick={this.handleSubmit}>Query</button>
+            <button id="submitButton" onClick={this.handleSubmit}>
+              Query
+            </button>
           </div>
 
-          <div hidden={!this.state.city}>
-            <font size="3" color="pink">
-              Where are you?{" "}
-            </font>
-            {this.state.city} {this.state.country}
-          </div>
-          <div hidden={!this.state.temp}>
-            <font size="3" color="orange">
-              {this.state.city} weather:
-            </font>
-            <br />
-            {this.state.temp}{" "}
-            <font size="3" color="red">
-              degrees Fahrenheit
-            </font>
-          </div>
-          <div hidden={!this.state.notFound}>
-            <font size="3" color="red">
-              Oops, didn't find a city with this name
-            </font>
-          </div>
+          {this.state.city ? (
+            <div>
+              <font size="3" color="pink">
+                Where are you?{" "}
+              </font>
+              <div id="cityName">
+                {this.state.city} {this.state.country}
+              </div>
+            </div>
+          ) : null}
+
+          {this.state.temp ? (
+            <div>
+              <font size="3" color="orange">
+                {this.state.city} weather:
+              </font>
+              <br />
+              {this.state.temp}{" "}
+              <font size="3" color="red">
+                degrees Fahrenheit
+              </font>
+            </div>
+          ) : null}
+
+          {this.state.notFound ? (
+            <div>
+              <font size="3" color="red">
+                Oops, didn't find a city with this name
+              </font>
+            </div>
+          ) : null}
         </header>
       </div>
     );
