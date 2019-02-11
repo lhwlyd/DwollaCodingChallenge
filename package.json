@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "npm i && cd client && npm start",
-    "test": "npm i&& npm i --only=dev && cd client && npm run test"
+    "test": "npm i && npm i --only=dev && cd client && npm i && npm run test"
   },
   "repository": {
     "type": "git",
