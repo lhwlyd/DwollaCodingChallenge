@@ -13,7 +13,7 @@
     "sinon": "^7.2.3"
   },
   "scripts": {
-    "dev": "npm i && cd client && npm start",
+    "dev": "npm i && cd client && npm i && npm start",
     "test": "npm i && npm i --only=dev && cd client && npm i && npm run test"
   },
   "repository": {
