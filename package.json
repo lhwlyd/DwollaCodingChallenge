@@ -1,0 +1,29 @@
+{
+  "name": "dwolla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  },
+  "devDependencies": {
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "sinon": "^7.2.3"
+  },
+  "scripts": {
+    "dev": "npm i && cd client && npm start",
+    "test": "npm i&& npm i --only=dev && cd client && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhwlyd/DwollaCodingChallenge.git"
+  },
+  "author": "Roy Luo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lhwlyd/DwollaCodingChallenge/issues"
+  },
+  "homepage": "https://github.com/lhwlyd/DwollaCodingChallenge#readme"
+}

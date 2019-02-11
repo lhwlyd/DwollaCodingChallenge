@@ -9,25 +9,21 @@ it("renders without crashing", () => {
   shallow(<App />);
 });
 
-it("fetches London temperature without crashing", () => {
+it("fetches London temperature without crashing", done => {
   const wrapper = shallow(<App />);
   const button = wrapper.find("#submitButton");
   const input = wrapper.find("#textInput");
   input.simulate("change", {
     target: {
-      value: "London"
+      value: "Shenzhen"
     }
   });
   button.simulate("click");
+  //jest.useFakeTimers();
   setTimeout(() => {
     wrapper.update();
-    expect(
-      wrapper
-        .find("#cityName")
-        .text()
-        .toEqual("London, uk")
-    );
-    wrapper.unmount();
+    expect(wrapper.find("#cityName").text()).toEqual("Shenzhen CN");
     done();
   }, 2000);
+  //jest.runAllTimers();
 });
